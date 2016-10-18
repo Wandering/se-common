@@ -1,0 +1,9 @@
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    // https://mvnrepository.com/artifact/com.google.zxing/javase
+    compile group: 'com.google.zxing', name: 'javase', version: '3.3.0'
+
+    compile project (':se-utils')
+}

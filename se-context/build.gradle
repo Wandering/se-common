@@ -1,0 +1,9 @@
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+
+    compile "com.google.guava:guava:$guavaVersion"
+    compile "org.apache.commons:commons-lang3:$commonsVersion"
+
+    compile "javax.inject:javax.inject:${javax_inject_version}"
+}
