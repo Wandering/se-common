@@ -97,7 +97,7 @@ allprojects {
         repositories {
             maven {
                 name = 'starteasy'
-                url "http://repo.starteasy.cn/content/repositories/${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases'}"
+                url "http://repo.startupeasy.cn:8081/repository/maven-${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases'}"
             }
         }
     }
