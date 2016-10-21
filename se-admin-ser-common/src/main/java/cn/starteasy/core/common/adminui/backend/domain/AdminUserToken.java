@@ -1,10 +1,10 @@
 package cn.starteasy.core.common.adminui.backend.domain;
 
 import cn.starteasy.core.common.domain.BaseDomain;
-//import com.fasterxml.jackson.annotation.JsonGetter;
 
-import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+//import com.fasterxml.jackson.annotation.JsonGetter;
 
 
 public class AdminUserToken extends BaseDomain<Integer> {

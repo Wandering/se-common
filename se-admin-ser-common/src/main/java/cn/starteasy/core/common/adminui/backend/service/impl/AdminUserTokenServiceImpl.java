@@ -1,28 +1,34 @@
 /*
- * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
- *
- * Project Name: cmc
- * $Id:  DatagroupServiceImpl.java 2014-10-27 10:37:54 $
+ * Copyright (c) 2013-2014, starteasy Inc. All Rights Reserved.
+ * 
+ * Project Name: lms
+ * $Id:  2016-10-21 19:09:57 $ 
  */
+
+
+
+
 package cn.starteasy.core.common.adminui.backend.service.impl;
 
-import cn.starteasy.core.common.adminui.backend.dao.IDatagroupDAO;
-import cn.starteasy.core.common.adminui.backend.domain.Datagroup;
-import cn.starteasy.core.common.adminui.backend.service.IDatagroupService;
-import cn.starteasy.core.common.dao.IBaseDAO;
+import cn.starteasy.core.common.adminui.backend.dao.IAdminUserTokenDAO;
+import cn.starteasy.core.common.adminui.backend.domain.AdminUserToken;
+import cn.starteasy.core.common.adminui.backend.service.IAdminUserTokenService;
 import cn.starteasy.core.common.service.impl.AbstractPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Map;
 
-@Service("DatagroupServiceImpl")
-public class DatagroupServiceImpl extends AbstractPageService<Long, IDatagroupDAO, Datagroup> implements IDatagroupService {
+
+@Service("AdminUserTokenServiceImpl")
+public class AdminUserTokenServiceImpl extends AbstractPageService<Integer, IAdminUserTokenDAO, AdminUserToken> implements IAdminUserTokenService {
     @Autowired
-    private IDatagroupDAO datagroupDAO;
+    private IAdminUserTokenDAO adminUserTokenDAO;
 
     @Override
-    public IDatagroupDAO getDao() {
-        return datagroupDAO;
+    public IAdminUserTokenDAO getDao() {
+        return adminUserTokenDAO;
     }
 
 //    @Override
@@ -76,8 +82,8 @@ public class DatagroupServiceImpl extends AbstractPageService<Long, IDatagroupDA
 //    }
 //
 //    @Override
-//    public List<Datagroup> findAll() {
-//        return datagroupDAO.findAll();
+//    public List<AdminUserToken> findAll() {
+//        return adminUserTokenDAO.findAll();
 //    }
 //
 //    @Override
@@ -131,8 +137,8 @@ public class DatagroupServiceImpl extends AbstractPageService<Long, IDatagroupDA
 //    }
 //
 //    @Override
-//    protected DatagroupDAO getDao() {
-//        return datagroupDAO;
+//    protected AdminUserTokenDAO getDao() {
+//        return adminUserTokenDAO;
 //    }
 //
 //    @Override

@@ -19,17 +19,18 @@ import java.util.Map;
  */
 public abstract class AbstractPersistenceProvider implements IPersistenceProvider {
 
-    public abstract IBaseService getService();
-
     @Override
     public void verifyData(Map<String, Object> dataMap) {
 
     }
 
     @Override
-    public IBaseDAO getDao() {
-        return null;
+    public Object create(Map<String, Object> entityMap) {
+        return getMainService().create(entityMap);
     }
 
-
+    @Override
+    public int edit(Map<String, Object> entityMap) {
+        return getMainService().edit(entityMap);
+    }
 }

@@ -22,7 +22,7 @@ public class BasePersistenceProviderMaps {
     public IBaseService get(BaseServiceMaps serviceMaps, String mainObj){
         IPersistenceProvider persistenceProvider = providerMap.get(mainObj);
         if(persistenceProvider != null){
-            return persistenceProvider;
+            return persistenceProvider.getMainService();
         }
         return serviceMaps.get(mainObj);
     }

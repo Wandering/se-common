@@ -2,27 +2,26 @@
  * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
  *
  * Project Name: cmc
- * $Id:  DatagroupDataServiceImpl.java 2014-10-27 10:37:55 $
+ * $Id:  DatagroupServiceImpl.java 2014-10-27 10:37:54 $
  */
 package cn.starteasy.core.common.adminui.backend.service.impl;
 
-import cn.starteasy.core.common.adminui.backend.dao.IDatagroupDataDAO;
-import cn.starteasy.core.common.adminui.backend.domain.DatagroupData;
-import cn.starteasy.core.common.adminui.backend.service.IDatagroupDataService;
-import cn.starteasy.core.common.dao.IBaseDAO;
+import cn.starteasy.core.common.adminui.backend.dao.IDatagroupDAO;
+import cn.starteasy.core.common.adminui.backend.domain.Datagroup;
+import cn.starteasy.core.common.adminui.backend.service.IDatagroupService;
 import cn.starteasy.core.common.service.impl.AbstractPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@Service("DatagroupDataServiceImpl")
-public class DatagroupDataServiceImpl extends AbstractPageService<Long, IDatagroupDataDAO, DatagroupData> implements IDatagroupDataService {
+@Service("DatagroupServiceImpl")
+public class DatagroupServiceImpl extends AbstractPageService<Long, IDatagroupDAO, Datagroup> implements IDatagroupService {
     @Autowired
-    private IDatagroupDataDAO datagroupDataDAO;
+    private IDatagroupDAO datagroupDAO;
 
     @Override
-    public IDatagroupDataDAO getDao() {
-        return datagroupDataDAO;
+    public IDatagroupDAO getDao() {
+        return datagroupDAO;
     }
 
 //    @Override
@@ -76,8 +75,8 @@ public class DatagroupDataServiceImpl extends AbstractPageService<Long, IDatagro
 //    }
 //
 //    @Override
-//    public List<DatagroupData> findAll() {
-//        return datagroupDataDAO.findAll();
+//    public List<Datagroup> findAll() {
+//        return datagroupDAO.findAll();
 //    }
 //
 //    @Override
@@ -131,8 +130,8 @@ public class DatagroupDataServiceImpl extends AbstractPageService<Long, IDatagro
 //    }
 //
 //    @Override
-//    protected DatagroupDataDAO getDao() {
-//        return datagroupDataDAO;
+//    protected DatagroupDAO getDao() {
+//        return datagroupDAO;
 //    }
 //
 //    @Override

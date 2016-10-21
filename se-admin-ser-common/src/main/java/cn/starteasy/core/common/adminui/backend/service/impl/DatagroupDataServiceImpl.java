@@ -2,27 +2,26 @@
  * Copyright (c) 2013-2014, thinkjoy Inc. All Rights Reserved.
  *
  * Project Name: cmc
- * $Id:  UserDatagroupServiceImpl.java 2014-10-27 10:37:55 $
+ * $Id:  DatagroupDataServiceImpl.java 2014-10-27 10:37:55 $
  */
 package cn.starteasy.core.common.adminui.backend.service.impl;
 
-import cn.starteasy.core.common.adminui.backend.dao.IUserDatagroupDAO;
-import cn.starteasy.core.common.adminui.backend.domain.UserDatagroup;
-import cn.starteasy.core.common.adminui.backend.service.IUserDatagroupService;
-import cn.starteasy.core.common.dao.IBaseDAO;
+import cn.starteasy.core.common.adminui.backend.dao.IDatagroupDataDAO;
+import cn.starteasy.core.common.adminui.backend.domain.DatagroupData;
+import cn.starteasy.core.common.adminui.backend.service.IDatagroupDataService;
 import cn.starteasy.core.common.service.impl.AbstractPageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 
-@Service("UserDatagroupServiceImpl")
-public class UserDatagroupServiceImpl extends AbstractPageService<Long, IUserDatagroupDAO, UserDatagroup> implements IUserDatagroupService {
+@Service("DatagroupDataServiceImpl")
+public class DatagroupDataServiceImpl extends AbstractPageService<Long, IDatagroupDataDAO, DatagroupData> implements IDatagroupDataService {
     @Autowired
-    private IUserDatagroupDAO userDatagroupDAO;
+    private IDatagroupDataDAO datagroupDataDAO;
 
     @Override
-    public IUserDatagroupDAO getDao() {
-        return userDatagroupDAO;
+    public IDatagroupDataDAO getDao() {
+        return datagroupDataDAO;
     }
 
 //    @Override
@@ -76,8 +75,8 @@ public class UserDatagroupServiceImpl extends AbstractPageService<Long, IUserDat
 //    }
 //
 //    @Override
-//    public List<UserDatagroup> findAll() {
-//        return userDatagroupDAO.findAll();
+//    public List<DatagroupData> findAll() {
+//        return datagroupDataDAO.findAll();
 //    }
 //
 //    @Override
@@ -131,8 +130,8 @@ public class UserDatagroupServiceImpl extends AbstractPageService<Long, IUserDat
 //    }
 //
 //    @Override
-//    protected UserDatagroupDAO getDao() {
-//        return userDatagroupDAO;
+//    protected DatagroupDataDAO getDao() {
+//        return datagroupDataDAO;
 //    }
 //
 //    @Override
