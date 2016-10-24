@@ -1,8 +1,9 @@
 buildscript {
     repositories {
+    mavenCentral()
         mavenLocal()
-        maven { url 'http://repository.jboss.com/maven2/' }
         mavenCentral()
+        maven { url 'http://repository.jboss.com/maven2/' }
         jcenter()
         maven { url "http://repo.spring.io/plugins-release" }
         maven { url "http://repo.spring.io/milestone" }
@@ -68,8 +69,8 @@ allprojects {
 
     repositories {
         mavenLocal()
-        maven { url 'http://repository.jboss.com/maven2/' }
         mavenCentral()
+        maven { url 'http://repository.jboss.com/maven2/' }
         jcenter()
         maven { url 'http://repo.spring.io/milestone' }
         maven { url 'http://repo.spring.io/snapshot' }
