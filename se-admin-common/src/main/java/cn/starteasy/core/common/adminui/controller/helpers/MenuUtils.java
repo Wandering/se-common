@@ -4,6 +4,7 @@ package cn.starteasy.core.common.adminui.controller.helpers;
 import cn.starteasy.core.common.adminui.backend.domain.Resource;
 import cn.starteasy.core.common.adminui.backend.domain.ResourceGrid;
 import cn.starteasy.core.common.adminui.backend.domain.dto.ResourceDTO;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +13,17 @@ import java.util.List;
  * Created by wdong on 15/7/31.
  */
 public class MenuUtils {
-
+    public static void setGridValue(List<ResourceGrid> resourceGridList)
+    {
+        for(ResourceGrid resourceGrid:resourceGridList)
+        {
+            String f = resourceGrid.getFormatter();
+            if(!StringUtils.isEmpty(f) && f.equals("\"\"")) {
+                f = "setDefultValue";
+                resourceGrid.setFormatter(f);
+            }
+        }
+    }
 
     public static List<ResourceDTO> getTreeMenu(List<Resource> list)
     {

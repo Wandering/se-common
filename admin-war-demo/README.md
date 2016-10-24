@@ -5,4 +5,4 @@
 
 
 4. 浏览 http://127.0.0.1:8080/login     a  /   22   登录
-5. 浏览 http://127.0.0.1:8080/admin/ucm/resource
+5. 浏览 http://127.0.0.1:8080/admin/ucm/index.html?v=4.0

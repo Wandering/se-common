@@ -1,13 +1,20 @@
-include 'se-domain-common'
-include 'se-biz-common'
-include 'se-protocol-common'
-include 'se-context'
-include 'se-admin-common'
-include 'se-web-common'
-include 'admin-war-demo'
-include 'admin-service-demo'
-include 'webfront-war-demo'
-include 'se-qrcode'
 include 'se-utils'
+include 'se-qrcode'
+
+include 'se-context'
+include 'se-domain-common'
+include 'se-protocol-common'
+include 'se-biz-common'
+include 'se-web-common'
+
+include 'se-admin-common'
+include 'se-admin-ser-common'
+
 include 'static-war'
+include 'admin-service-demo'
+include 'admin-war-demo'
+
+
+//
+include 'se-admin-ser-common'
 

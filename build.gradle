@@ -52,7 +52,7 @@ task testReport(type: TestReport) {
 /** 此闭包内的声明子类皆可使用 */
 allprojects {
     group = 'cn.starteasy.core.common'
-    version = '0.0.1-SNAPSHOT'
+    version = '0.0.5-SNAPSHOT'
 
     apply plugin: 'java'
     sourceCompatibility=1.8
@@ -98,7 +98,7 @@ allprojects {
         repositories {
             maven {
                 name = 'starteasy'
-                url "http://repo.starteasy.cn/content/repositories/${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases'}"
+                url "http://repo.startupeasy.cn:8081/repository/maven-${project.version.endsWith('-SNAPSHOT') ? 'snapshots' : 'releases'}"
             }
         }
     }
