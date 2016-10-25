@@ -17,4 +17,5 @@ include 'admin-war-demo'
 
 //
 include 'se-admin-ser-common'
+include 'se-logger-common'
 

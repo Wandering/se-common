@@ -1,0 +1,13 @@
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springbootVersion"
+    testCompile "org.springframework.boot:spring-boot-test:$springbootVersion"
+
+    compile "org.springframework:spring-context:$springVersion"
+    compile "com.alibaba:fastjson:$fastjsonVersion"
+    compile "javax.inject:javax.inject:${javax_inject_version}"
+    compile "org.aspectj:aspectjrt:1.8.9"
+
+    compile project (':se-utils')
+    compile project (':se-biz-common')
+}
