@@ -4,6 +4,9 @@ include 'se-qrcode'
 include 'se-context'
 include 'se-domain-common'
 include 'se-protocol-common'
+
+include 'se-logger-common'
+
 include 'se-biz-common'
 include 'se-web-common'
 
@@ -15,7 +18,4 @@ include 'admin-service-demo'
 include 'admin-war-demo'
 
 
-//
-include 'se-admin-ser-common'
-include 'se-logger-common'
 
