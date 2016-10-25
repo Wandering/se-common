@@ -10,9 +10,12 @@ include 'se-web-common'
 include 'se-admin-common'
 include 'se-admin-ser-common'
 
-//include 'static-war'
-//include 'admin-service-demo'
-//include 'admin-war-demo'
+include 'static-war'
+include 'admin-service-demo'
+include 'admin-war-demo'
 
 
+//
+include 'se-admin-ser-common'
+include 'se-logger-common'
 
