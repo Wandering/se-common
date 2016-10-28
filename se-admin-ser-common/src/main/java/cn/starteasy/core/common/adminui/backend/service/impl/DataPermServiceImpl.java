@@ -8,6 +8,8 @@ import cn.starteasy.core.common.adminui.backend.domain.DataModel;
 import cn.starteasy.core.common.adminui.backend.domain.DatagroupData;
 import cn.starteasy.core.common.adminui.backend.domain.Resource;
 import cn.starteasy.core.common.domain.UserDomain;
+import cn.starteasy.core.common.domain.persistent.SearchEnum;
+import cn.starteasy.core.common.domain.persistent.utils.ConditionBuilder;
 import cn.starteasy.core.common.service.admin.IDataPermService;
 import cn.starteasy.core.common.utils.UserContext;
 import com.google.common.collect.Maps;
@@ -39,9 +41,8 @@ public class DataPermServiceImpl implements IDataPermService {
     @Override
     public String makeDataPermSql(String resUrl) {
         UserDomain user = UserContext.getCurrentUser();
-        Map<String, Object> condition = Maps.newHashMap();
-        condition.put("url", resUrl);
-        Resource resource = resourceDAO.queryOne(null, condition, null);
+
+        Resource resource = resourceDAO.queryOne(null, ConditionBuilder.condition("url", SearchEnum.eq, resUrl), null);
 
         int modelId = 0;
         if (resource != null && resource.getModelId() != null) {
@@ -51,9 +52,7 @@ public class DataPermServiceImpl implements IDataPermService {
             return null;
         }
 
-        condition.clear();
-        condition.put("modelId", modelId);
-        DataModel dataModel = dataModelDAO.queryOne(null, condition, null); //dataModelDAO.getDataPermSql(modelId);
+        DataModel dataModel = dataModelDAO.queryOne(null, ConditionBuilder.condition("modelId", SearchEnum.eq, modelId), null); //dataModelDAO.getDataPermSql(modelId);
         if (dataModel == null) {
             return null;
         }

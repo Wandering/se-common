@@ -5,7 +5,9 @@ import cn.starteasy.core.common.adminui.backend.domain.ResourceGrid;
 import cn.starteasy.core.common.adminui.backend.service.IResourceGridService;
 import cn.starteasy.core.common.adminui.controller.helpers.*;
 import cn.starteasy.core.common.domain.BizStatusEnum;
+import cn.starteasy.core.common.domain.persistent.SearchEnum;
 import cn.starteasy.core.common.domain.persistent.SqlOrderEnum;
+import cn.starteasy.core.common.domain.persistent.utils.ConditionBuilder;
 import cn.starteasy.core.common.domain.persistent.utils.SorterBuilder;
 import cn.starteasy.core.common.exception.BizException;
 import cn.starteasy.core.common.exception.BizExceptionEnum;
@@ -285,19 +287,19 @@ public abstract class AbstractCommonController<T>  extends AbstractController{
         //全局 做唯一性校验
         if(!Strings.isNullOrEmpty(existRules)){//唯一性校验
             String[] fields = existRules.split(",");
-            Map<String, Object> conditions = new HashMap<>();
+            ConditionBuilder conditionBuilder = new ConditionBuilder();
             for(String field : fields) {
-                conditions.put(field, dataMap.get(field));
+                conditionBuilder.and(field, SearchEnum.eq, dataMap.get(field));
             }
             if(isEdit){ //编辑
-                conditions.put("id", dataMap.get("id"));
+                conditionBuilder.and("id", SearchEnum.eq, dataMap.get("id"));
 
-                List existObjList = getServiceMaps().get(mainObj).viewList(null, conditions, null);
+                List existObjList = getServiceMaps().get(mainObj).viewList(null, conditionBuilder.build(), null);
                 if(existObjList != null && existObjList.size() > 1){
                     throw new BizException(BizExceptionEnum.EXISTS.getCode(), existRules + BizExceptionEnum.EXISTS.getDesc());
                 }
             } else {
-                Object existObj = getServiceMaps().get(mainObj).viewOne(null, conditions, null);
+                Object existObj = getServiceMaps().get(mainObj).viewOne(null, conditionBuilder.build(), null);
                 if(existObj != null){
                     throw new BizException(BizExceptionEnum.EXISTS.getCode(), existRules + BizExceptionEnum.EXISTS.getDesc());
                 }
