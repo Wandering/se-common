@@ -4,6 +4,7 @@ package cn.starteasy.core.common.adminui.backend.dao;
 import cn.starteasy.core.common.adminui.backend.domain.DatagroupData;
 import cn.starteasy.core.common.adminui.backend.domain.Resource;
 import cn.starteasy.core.common.adminui.backend.domain.ResourceAction;
+import cn.starteasy.core.common.adminui.backend.domain.Role;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -27,4 +28,6 @@ public interface IPermissionDAO {
     public List<ResourceAction> getResActionByPerm(@Param("condition") Map<String, Object> params);
 
     public List<DatagroupData> getDataByPerm(@Param("condition") Map<String, Object> params);
+
+    public Role getRoleByUserId(Object userId);
 }

@@ -52,7 +52,7 @@ task testReport(type: TestReport) {
 /** 此闭包内的声明子类皆可使用 */
 allprojects {
     group = 'cn.starteasy.core.common'
-    version = '0.0.13-SNAPSHOT'
+    version = '0.0.15-SNAPSHOT'
 
     apply plugin: 'java'
     sourceCompatibility=1.8

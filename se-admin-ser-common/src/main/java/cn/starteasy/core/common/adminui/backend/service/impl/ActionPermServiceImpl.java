@@ -3,6 +3,7 @@ package cn.starteasy.core.common.adminui.backend.service.impl;
 import cn.starteasy.core.common.adminui.backend.dao.IPermissionDAO;
 import cn.starteasy.core.common.adminui.backend.domain.Resource;
 import cn.starteasy.core.common.adminui.backend.domain.ResourceAction;
+import cn.starteasy.core.common.adminui.backend.domain.Role;
 import cn.starteasy.core.common.adminui.backend.service.IActionPermService;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
@@ -73,5 +74,16 @@ public class ActionPermServiceImpl implements IActionPermService {
         }
 
         return actionPerms;
+    }
+
+    /**
+     * 根据用户id获取用户角色
+     *
+     * @param userId
+     * @return
+     */
+    @Override
+    public Role getRoleByUserId(Object userId) {
+        return permissionDAO.getRoleByUserId(userId);
     }
 }

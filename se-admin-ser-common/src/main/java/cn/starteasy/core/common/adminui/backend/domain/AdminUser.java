@@ -38,6 +38,8 @@ public class AdminUser extends UserDomain<Long> implements UserDetails{
 	//等同于 name
 	private String login;
 
+	private String photo;
+
 
 	//扩展字段可以添加想要的个性化属性
 	private Object object;
@@ -93,13 +95,13 @@ public class AdminUser extends UserDomain<Long> implements UserDetails{
 			.append("RealName",getRealName())
 			.toString();
 	}
-	
+
 	public int hashCode() {
 		return new HashCodeBuilder()
 			.append(getId())
 			.toHashCode();
 	}
-	
+
 	public boolean equals(Object obj) {
 		if(obj instanceof AdminUser == false) return false;
 		if(this == obj) return true;
@@ -169,6 +171,14 @@ public class AdminUser extends UserDomain<Long> implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 }
 

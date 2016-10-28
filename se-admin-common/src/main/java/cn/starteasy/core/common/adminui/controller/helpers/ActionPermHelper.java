@@ -2,6 +2,7 @@ package cn.starteasy.core.common.adminui.controller.helpers;
 
 
 import cn.starteasy.core.common.adminui.backend.domain.Resource;
+import cn.starteasy.core.common.adminui.backend.domain.Role;
 import cn.starteasy.core.common.adminui.backend.service.IActionPermService;
 import cn.starteasy.core.common.adminui.backend.service.IResourceService;
 import cn.starteasy.core.common.domain.persistent.SearchEnum;
@@ -66,6 +67,10 @@ public class ActionPermHelper {
 
     public final List<Resource> getResourcePerm(Object uid, String product, String hide) {
         return actionPermService.getResourcePerms( uid, product,hide);
+    }
+
+    public final Role getRoleByUserId(Object userId){
+        return actionPermService.getRoleByUserId(userId);
     }
 
 }

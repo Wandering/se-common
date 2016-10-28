@@ -2,6 +2,7 @@ package cn.starteasy.core.common.adminui.backend.service;
 
 
 import cn.starteasy.core.common.adminui.backend.domain.Resource;
+import cn.starteasy.core.common.adminui.backend.domain.Role;
 
 import java.util.List;
 import java.util.Map;
@@ -41,4 +42,11 @@ public interface IActionPermService {
      * @return <页面id, 页面内的功能权限集合>
      */
     public Map<String, Set<String>> getActionPerms(Object userId);
+
+    /**
+     * 根据用户id获取用户角色
+     * @param userId 用户id
+     * @return
+     */
+    public Role getRoleByUserId(Object userId);
 }
