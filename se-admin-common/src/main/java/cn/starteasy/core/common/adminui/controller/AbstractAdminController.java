@@ -149,7 +149,7 @@ public abstract class AbstractAdminController<T extends IPageService> extends Ab
 
         enhancePageConditions(request,conditions);
 
-        return getMainService().queryPage(null, conditions, page, (page-1)*rows, rows, Lists.newArrayList());
+        return getMainService().queryPage(null, conditions, page, (page-1)*rows, rows, null);
     }
 
     /***

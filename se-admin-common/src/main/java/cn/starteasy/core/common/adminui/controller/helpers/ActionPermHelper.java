@@ -35,7 +35,7 @@ public class ActionPermHelper {
     public final Set<String> getActionPerm(String mainObj) {
         Map<String,Object> map = new HashMap<>();
         map.put("bizModelName", mainObj);
-        Resource resource = resourceService.viewOne(null, ConditionBuilder.condition("bizModelName", SearchEnum.eq, mainObj), Lists.newArrayList());
+        Resource resource = resourceService.viewOne(null, ConditionBuilder.condition("bizModelName", SearchEnum.eq, mainObj), null);
         if(resource==null)
             return null;
         return actionPermService.getActionPermsByRes(UserContext.getCurrentUser().getId(),resource.getId());

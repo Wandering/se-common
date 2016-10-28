@@ -169,9 +169,7 @@ public abstract class AbstractCommonController<T>  extends AbstractController{
         }
 
         //2.执行通用校验
-        Map<String, Object> condition = Maps.newHashMap();
-        condition.put("moduleName", mainObj);
-        List<ResourceGrid> resourceGridList = resourceGridService.viewList(null, condition, SorterBuilder.sorterList("orderNum", SqlOrderEnum.ASC));
+        List<ResourceGrid> resourceGridList = resourceGridService.viewList(null, ConditionBuilder.condition("moduleName", SearchEnum.eq, mainObj), SorterBuilder.sorterList("orderNum", SqlOrderEnum.ASC));
 
         String editRules = null;
         Map<String, Object> rules = null;
