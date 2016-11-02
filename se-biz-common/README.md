@@ -8,7 +8,7 @@
 ##Service层 是对DAO层的简单包装,不具备业务语义,仅支持事务等技术属性[其不允许暴露为外部服务]; ExService是具备业务语义的;
 ##Facade层  是对Service和ExService的组装,具备更多更丰富的业务语义; [其主要向外部暴露服务]
 
-并且已经和特定框架绑定死了（spring，mybatis，logback, fastjson）
+并且已经和特定框架绑定死了（spring，mybatis，dubbox, logback, fastjson）
 
 
 主要包括以下几部分内容;
