@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.InternalAuthenticationServiceException;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -28,6 +29,18 @@ public class BizExceptionHandler implements RestExceptionHandler {
         }
 //        Response response = new Response.ResponseBuilder((BizException) exception).build();
         ResponseT<String> responseT = null;
+        if(exception instanceof InternalAuthenticationServiceException) {
+            internalHandleException((Exception) exception.getCause(), request, isDebug);
+        } else {
+            internalHandleException(exception, request, isDebug);
+        }
+
+        return new ResponseEntity<>(responseT, HttpStatus.OK);
+        //return null;
+    }
+
+    private ResponseT<String> internalHandleException(Exception exception, HttpServletRequest request, boolean isDebug){
+        ResponseT<String> responseT = null;
         if (exception instanceof BizException) { //业务预知的异常
             responseT = ResponseTs.<String>newResponseException((BizException) exception, isDebug);
             logger.error(errorMsgPattern, request.getRequestURL(), ((BizException) exception).getMsg());
@@ -43,7 +56,6 @@ public class BizExceptionHandler implements RestExceptionHandler {
             logger.error(errorMsgPattern, request.getRequestURL(), exception);
         }
 
-        return new ResponseEntity<>(responseT, HttpStatus.OK);
-        //return null;
+        return responseT;
     }
 }

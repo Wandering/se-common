@@ -2,10 +2,7 @@ package cn.starteasy.core.web.restful;
 
 import cn.starteasy.core.common.protocol.RequestT;
 import cn.starteasy.core.common.protocol.ResponseT;
-import cn.starteasy.core.common.protocol.utils.ExtPropertyFilter;
-import cn.starteasy.core.common.protocol.utils.RtnCodeEnum;
-import cn.starteasy.core.common.protocol.utils.StringGZIPUtils;
-import cn.starteasy.core.common.protocol.utils.StyleEnum;
+import cn.starteasy.core.common.protocol.utils.*;
 import cn.starteasy.core.utils.AES128Utils;
 import cn.starteasy.core.utils.ByteUtils;
 import com.alibaba.fastjson.JSON;
@@ -39,9 +36,9 @@ import java.nio.charset.Charset;
  * @author qyang
  * @since v0.0.1
  */
-public class ExtFastJsonHttpMessageConverter<T> extends AbstractHttpMessageConverter<T> {
+public class ExtFastJsonHttpMessageConverter4Springold<T> extends AbstractHttpMessageConverter<T> {
 
-    public Logger logger = LoggerFactory.getLogger(ExtFastJsonHttpMessageConverter.class);
+    public Logger logger = LoggerFactory.getLogger(ExtFastJsonHttpMessageConverter4Springold.class);
 
     public final static Charset UTF8     = Charset.forName("UTF-8");
 
@@ -49,7 +46,7 @@ public class ExtFastJsonHttpMessageConverter<T> extends AbstractHttpMessageConve
 
     private SerializerFeature[] features = new SerializerFeature[0];
 
-    public ExtFastJsonHttpMessageConverter(){
+    public ExtFastJsonHttpMessageConverter4Springold(){
         super(new MediaType("application", "json", UTF8), new MediaType("application", "*+json", UTF8));
         features = new SerializerFeature[1];
         features[0] = SerializerFeature.DisableCircularReferenceDetect;
@@ -115,12 +112,18 @@ public class ExtFastJsonHttpMessageConverter<T> extends AbstractHttpMessageConve
         }
 
         byte[] bytes = baos.toByteArray();
+        //String url = ((ServletServerHttpRequest) inputMessage).getURI().getPath();
+        String url = ((ServletServerHttpRequest)((ServletServerHttpRequest) inputMessage)).getServletRequest().getServletPath();
+        //支持 url包含？参数
+        int size = url.indexOf("?");
+        if(size != -1){
+            url = url.substring(0, size);
+        }
 
-
-        T t = JSON.parseObject(bytes, 0, bytes.length, charset.newDecoder(), clazz);
+        T t = JSON.parseObject(bytes, 0, bytes.length, charset.newDecoder(), iTypeReference.getTypeReference(url).getType());
 
         //请求数据是RequestT对象时styledData处理
-//        t = resetRequestData(url, t);
+        t = resetRequestData(url, t);
 
         return t;
     }
