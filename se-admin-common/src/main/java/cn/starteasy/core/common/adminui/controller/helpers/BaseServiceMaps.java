@@ -8,6 +8,7 @@
 
 package cn.starteasy.core.common.adminui.controller.helpers;
 
+import cn.starteasy.core.common.ServiceManager;
 import cn.starteasy.core.common.adminui.backend.service.*;
 import cn.starteasy.core.common.service.IBaseService;
 import com.google.common.collect.Maps;
@@ -20,6 +21,9 @@ import java.util.Map;
  * Created by qyang on 14-9-24.
  */
 public class BaseServiceMaps {
+
+    @Autowired
+    private ServiceManager serviceManager;
 
     @Autowired
     private IModelService modelService;
@@ -72,6 +76,8 @@ public class BaseServiceMaps {
         serviceMap.put("datagroupData".toLowerCase(),datagroupDataService);
         serviceMap.put("datagroup".toLowerCase(),datagroupService);
         serviceMap.put("userDatagroup".toLowerCase(),userDatagroupService);
+
+        serviceManager.batchAdd(serviceMap);
     }
 
     public IBaseService get(String mainObj){

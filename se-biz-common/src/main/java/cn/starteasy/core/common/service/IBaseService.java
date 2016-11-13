@@ -18,7 +18,7 @@ import java.util.Map;
  * @author qyang
  * @since v0.0.1
  */
-public interface IBaseService<ID extends Serializable, D extends IBaseDAO,T extends BaseDomain>{
+public interface IBaseService<ID extends Serializable, D extends IBaseDAO,T extends BaseDomain> extends IPersistenceProvider{
 
     public D getDao();
 
@@ -28,7 +28,7 @@ public interface IBaseService<ID extends Serializable, D extends IBaseDAO,T exte
      * @param entity
      */
     public ID create(T entity);
-    public ID create(Map<String, Object> entityMap);
+//    public ID create(Map<String, Object> entityMap);
 
     /**
      * 修改一条数据
@@ -37,7 +37,7 @@ public interface IBaseService<ID extends Serializable, D extends IBaseDAO,T exte
      *            要更新的实体对象
      */
     public int edit(T entity);
-    public int edit(Map<String, Object> entityMap);
+//    public int edit(Map<String, Object> entityMap);
     public int editByCondition(Map<String, Object> updateMap, Map<String, Object> conditionMap);
     public int editByWhereSql(Map<String, Object> updateMap, String nativeSql);
     public int editNull(T entity);

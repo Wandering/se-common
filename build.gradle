@@ -52,7 +52,7 @@ task testReport(type: TestReport) {
 /** 此闭包内的声明子类皆可使用 */
 allprojects {
     group = 'cn.starteasy.core.common'
-    version = '0.0.17-SNAPSHOT'
+    version = '0.0.18-SNAPSHOT'
 
     apply plugin: 'java'
     sourceCompatibility=1.8
@@ -69,8 +69,10 @@ allprojects {
 
     repositories {
         mavenLocal()
-        mavenCentral()
+        maven { url "http://repo.startupeasy.cn:8081/repository/maven-public/" }
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
         maven { url 'http://repository.jboss.com/maven2/' }
+        mavenCentral()
         jcenter()
         maven { url 'http://repo.spring.io/milestone' }
         maven { url 'http://repo.spring.io/snapshot' }

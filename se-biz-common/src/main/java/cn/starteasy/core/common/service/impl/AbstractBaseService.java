@@ -25,6 +25,15 @@ import java.util.Map;
  */
 //@CacheConfig(cacheNames = {CacheConstants.ALLUNUSED})
 public abstract class AbstractBaseService<ID extends Serializable, D extends IBaseDAO, T extends BaseDomain> implements IBaseService<ID,D, T>, IDaoAware<D, T> {
+    @Override
+    public void verifyData(Map<String, Object> dataMap) {
+
+    }
+
+    @Override
+    public IBaseService getMainService() {
+        return this;
+    }
 
     @Override
     public ID create(T entity) {

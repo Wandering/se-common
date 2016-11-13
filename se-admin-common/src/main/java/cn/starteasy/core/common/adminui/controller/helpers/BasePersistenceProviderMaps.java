@@ -19,10 +19,10 @@ public class BasePersistenceProviderMaps {
     protected final Map<String, IPersistenceProvider> providerMap = Maps.newHashMap();
 
 
-    public IBaseService get(BaseServiceMaps serviceMaps, String mainObj){
+    public IPersistenceProvider get(BaseServiceMaps serviceMaps, String mainObj){
         IPersistenceProvider persistenceProvider = providerMap.get(mainObj);
         if(persistenceProvider != null){
-            return persistenceProvider.getMainService();
+            return persistenceProvider;
         }
         return serviceMaps.get(mainObj);
     }

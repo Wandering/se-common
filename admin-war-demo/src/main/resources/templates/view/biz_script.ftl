@@ -7,6 +7,7 @@
 <script src="../../assets/js/plugins/jqgrid/i18n/grid.locale-cnffe4.js?0820"></script>
 <script src="../../assets/js/plugins/jqgrid/jquery.jqGrid.minffe4.js?0820"></script>
 <script src="../../assets/js/content.min.js?v=1.0.0"></script>
+<script src="../assets/js/jquery.cookie.js"/>
 
 
 <!-- biz js引入 -->
@@ -103,8 +104,8 @@
             deltext:"Del",
         <#--addurl:  "/admin/${bizSys}/commonsave/${mainObj}",-->
             edittext: "Edit",
-            editurl:  "/admin/${bizSys}/commonsave/${mainObj}",
-            delurl:  "/admin/${bizSys}/commonsave/${mainObj}",
+            editurl:  "/admin/${bizSys}/commonsave/${mainObj}?_csrf="+$.cookie('CSRF-TOKEN'),
+            delurl:  "/admin/${bizSys}/commonsave/${mainObj}?_csrf="+$.cookie('CSRF-TOKEN'),
             hidegrid: false
         });
         $(grid_selector).setSelection(4, true);

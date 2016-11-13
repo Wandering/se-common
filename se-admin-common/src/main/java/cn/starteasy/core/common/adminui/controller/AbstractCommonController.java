@@ -118,6 +118,8 @@ public abstract class AbstractCommonController<T>  extends AbstractController{
             dataMap.put("lastModifier", UserContext.getCurrentUser().getId());
             dataMap.put("lastModDate", System.currentTimeMillis());
             //getMainService(mainObj).updateMap(dataMap);
+            //后面取主对象
+            dataMap.put("_mainObj_", mainObj);
             innerHandleUpdate(mainObj, dataMap);
         } else if(ActionEnum.ADD.getAction().equals(operValue)){//新增
             if(!actionSet.contains(ActionEnum.ADD.getAction())){
@@ -136,6 +138,8 @@ public abstract class AbstractCommonController<T>  extends AbstractController{
                 dataMap.put("status", BizStatusEnum.N.getCode());
             }
             //getMainService(mainObj).insertMap(dataMap);
+            //后面取主对象
+            dataMap.put("_mainObj_", mainObj);
             innerHandleAdd(mainObj, dataMap);
         } else if(ActionEnum.DEL.getAction().equals(operValue)){//删除
             if(!actionSet.contains(ActionEnum.DEL.getAction())){
@@ -147,6 +151,8 @@ public abstract class AbstractCommonController<T>  extends AbstractController{
             dataMap.put("lastModDate", System.currentTimeMillis());
             //long id = Long.parseLong(dataMap.get("id").toString());
             //getMainService(mainObj).delete(id);
+            //后面取主对象
+            dataMap.put("_mainObj_", mainObj);
             innerHandleDel(mainObj, dataMap);
         } else {
             return "false";
