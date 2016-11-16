@@ -37,7 +37,7 @@ public class DynController extends BaseController<IDataModelService>{
     private IResourceDesignService resourceDesignService;
 
     protected String mainObjName;
-    protected String viewTitle;
+    protected String viewTitle = "";
 
     public static final String link = "_";
     protected final String rpModePrefix = "report";
