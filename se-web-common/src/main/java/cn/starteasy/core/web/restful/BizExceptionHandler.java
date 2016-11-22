@@ -30,9 +30,9 @@ public class BizExceptionHandler implements RestExceptionHandler {
 //        Response response = new Response.ResponseBuilder((BizException) exception).build();
         ResponseT<String> responseT = null;
         if(exception instanceof InternalAuthenticationServiceException) {
-            internalHandleException((Exception) exception.getCause(), request, isDebug);
+            responseT = internalHandleException((Exception) exception.getCause(), request, isDebug);
         } else {
-            internalHandleException(exception, request, isDebug);
+            responseT = internalHandleException(exception, request, isDebug);
         }
 
         return new ResponseEntity<>(responseT, HttpStatus.OK);

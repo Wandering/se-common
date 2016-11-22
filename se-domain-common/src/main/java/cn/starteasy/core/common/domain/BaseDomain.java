@@ -2,6 +2,7 @@ package cn.starteasy.core.common.domain;
 
 import java.io.Serializable;
 import java.math.BigInteger;
+import java.util.Map;
 
 /**
  * 
@@ -19,11 +20,22 @@ public class BaseDomain<T> implements Serializable {
     // ID
     private T              id;
 
+    /** 扩展属性，比较长用于 解决页面展示层 携带一个非主实体的属性；  */
+    private Map<String, Object> extProps;
+
     public T getId() {
         return this.id;
     }
 
     public void setId(T id) {
         this.id = id;
+    }
+
+    public Map<String, Object> getExtProps() {
+        return extProps;
+    }
+
+    public void setExtProps(Map<String, Object> extProps) {
+        this.extProps = extProps;
     }
 }

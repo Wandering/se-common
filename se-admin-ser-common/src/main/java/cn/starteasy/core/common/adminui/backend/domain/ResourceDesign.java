@@ -38,6 +38,8 @@ public class ResourceDesign extends CreateBaseDomain<Long>{
     private String mainCountSql;
     /** 查询规则|完全动态化 */
     private String whereRegex;
+    private String menuName;
+    private String parentName;
 
 	public ResourceDesign(){
 	}
@@ -105,7 +107,23 @@ public class ResourceDesign extends CreateBaseDomain<Long>{
         return this.whereRegex;
     }
 
-	public String toString() {
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public void setParentName(String parentName) {
+        this.parentName = parentName;
+    }
+
+    public String toString() {
 		return new ToStringBuilder(this,ToStringStyle.MULTI_LINE_STYLE)
 			.append("Id",getId())
 			.append("Number",getNumber())

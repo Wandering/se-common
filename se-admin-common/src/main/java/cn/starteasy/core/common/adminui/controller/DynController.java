@@ -71,6 +71,7 @@ public class DynController extends BaseController<IDataModelService>{
     public BizData4Page getTblDatas(String rpCode, HttpServletRequest request, HttpServletResponse response){
         ResourceDesign resourceDesign = resourceDesignService.viewOne(null, ConditionBuilder.condition(number, SearchEnum.eq, rpCode), null);
 
+        //TODO  支持 order by； limit
         String sql = resourceDesign.getMainSql();
         //String countsql = resourceDesign.getMainCountSql();
         List<Map> datas = resourceDesignService.getDao().queryBySql(sql);
